@@ -24,9 +24,7 @@ Route::post('/login', [AuthController::class, 'login']);
 
 // Protected Routes
 Route::group(['middleware' => ['auth:sanctum']], function () {
-    Route::get('/userdata', [AuthController::class, 'userdata']);
     Route::get('/{coin}', [CoinController::class, 'show']);
 
-    Route::post('/price', [CoinController::class, 'store']);
     Route::post('/logout', [AuthController::class, 'logout']);
 });
